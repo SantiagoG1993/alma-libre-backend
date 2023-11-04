@@ -10,9 +10,11 @@ version = '0.0.1-SNAPSHOT'
 java {
 	sourceCompatibility = '11'
 }
-
 repositories {
 	mavenCentral()
+}
+bootRun{
+	sourceResources sourceSets.main
 }
 
 dependencies {

@@ -5,7 +5,6 @@ const App = createApp({
     data(){
         return{
 
-
         }
     },
     created(){
