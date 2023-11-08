@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header{
+    min-height: 40vh ;
+    background-color: #DBC9DD;
+}
+main{
+    min-height: 50vh ;
+    border: 3px solid blue;
+}
+footer{
+    min-height: 20vh ;
+    border: 3px solid green;
+}
+.img_mandala{
+    width: 100%;
+    height: 70px;
+    border: 3px solid yellow;
+}
+.cont_logo_search_user{
+    width: 100%;
+    height: 200px ;
+    border: 3px solid red;
+    display: flex;
+    align-items: center;
+}
+
+.navbar{
+    background-color: #3D273E;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#logo{
+    height: 85%;
+    color: white;
+}
+#search_bar{
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 230px;
+}
+/* navbar */
+
+.navbar ul {
+    color: white;
+    display: flex;
+    border: 1px solid white;
+    justify-content: center;
+    text-decoration: none;
+
+}
