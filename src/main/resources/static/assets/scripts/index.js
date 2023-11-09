@@ -4,7 +4,8 @@ const App = createApp({
 
     data(){
         return{
-            timeOut:null
+            timeOut:null,
+            showRegisterForm:false
 
         }
     },
@@ -35,6 +36,13 @@ const App = createApp({
             const item = document.querySelector(".user_modal")
             item.classList.remove("show--login")  
             document.body.style.overflow = "";
+            this.showRegisterForm = false
+        },
+        showRegister(){
+            this.showRegisterForm = true
+        },
+        backToLogin(){
+            this.showRegisterForm = false
         }
 
 
