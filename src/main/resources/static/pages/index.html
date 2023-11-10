@@ -44,8 +44,13 @@
             </nav>
         </header>
         <main>
-            <div class="whatsapp">
+            <!-- Boton whatsapp -->
+            <div @mouseover="showWappModal" @mouseleave="closeWappModal"   class="whatsapp">
                 <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <!-- Whatsapp modal -->
+            <div class="wapp_modal">
+                <p>Contactanos de Lunes a Viernes 8 a 17hs!</p>
             </div>
             <div class="user_modal ">
                 
@@ -68,9 +73,9 @@
                     <input type="email" placeholder="correo electronico" id="email">
                     <input type="password" name="password" id="password" placeholder="Contraseña">
                     <input type="password" name="password" id="password" placeholder="confirmar contraseña">
-                    <i @click="backToLogin" class="fa-solid fa-circle-arrow-left"></i>
+                    <i @click="backToLogin" class="fa-solid fa-arrow-left-long"></i>
                     <input type="submit" value="ACEPTAR" id="btn_ingresar">
-                    <hr class="linea">                
+                    <hr class="linea">    
                 </div>
             </div>
             <!-- Menu productos hover -->
@@ -89,17 +94,74 @@
             <!-- Carrusel -->
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
                 <div class="carousel-inner">
-                  <div class="carousel-item active">
+                <div class="carousel-item active">
                     <img src="../assets/img/banner1.jpg" class="d-block w-100 " alt="banner1">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../assets/img/banner2.jpg" class="d-block w-100" alt="banner2">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="../assets/img/banner3.jpg" class="d-block w-100" alt="banner3">
-                  </div>
                 </div>
-              </div>
+                <div class="carousel-item">
+                    <img src="../assets/img/banner2.jpg" class="d-block w-100" alt="banner2">
+                </div>
+                <div class="carousel-item">
+                    <img src="../assets/img/banner3.jpg" class="d-block w-100" alt="banner3">
+                </div>
+                </div>
+            </div>
+
+            <!-- Seccion Productos -->
+            <ul class="tipo_producto">
+                <li>Productos personalizados</li>
+                <li>Diseños digitales</li>
+            </ul>
+            <div class="productos_container">
+                <div class="producto">
+                    <img src="../assets/img/remera1.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Remera unisex talle 4 al 16</h2>
+                    <h3 id="precio">4500.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="../assets/img/body.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Body </h2>
+                    <h3 id="precio">2500.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="../assets/img/setmate.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Set matero</h2>
+                    <h3 id="precio">3800.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="../assets/img/jarroT.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Jarro Termico</h2>
+                    <h3 id="precio">3100.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>
+                <!-- linea 2 de productos -->
+                <div class="producto">
+                    <img src="../assets/img/remera1.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Remera unisex talle 4 al 16</h2>
+                    <h3 id="precio">4500.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="../assets/img/body.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Body </h2>
+                    <h3 id="precio">2500.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="../assets/img/setmate.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Set matero</h2>
+                    <h3 id="precio">3800.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>
+                <div class="producto">
+                    <img src="../assets/img/jarroT.jpg" alt="remera1">
+                    <h2 id="nombre_producto">Jarro Termico</h2>
+                    <h3 id="precio">3100.00 ARS</h3>
+                    <button id="agregar_carrito_btn">Agregar al carrito</button>
+                </div>              
+            </div>
 
         </main>
         <footer>

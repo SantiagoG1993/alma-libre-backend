@@ -43,10 +43,29 @@ const App = createApp({
         },
         backToLogin(){
             this.showRegisterForm = false
-        }
-
-
-
+        },
+        showWappModal(){
+            const item = document.querySelector(".wapp_modal")
+            item.classList.add("show--wappmodal")
+        },
+        closeWappModal(){
+            setTimeout(()=>{
+                const item = document.querySelector(".wapp_modal")
+                item.classList.remove("show--wappmodal")  
+            },3000)
+        },
+        handleScroll(){
+            if(window.scrollY >=275){
+                const item = document.querySelector(".navbar")
+                item.classList.add("sticky")
+            }else{
+                const item = document.querySelector(".navbar")
+                item.classList.remove("sticky")
+            }
+        },
+    },
+    mounted(){
+        window.addEventListener("scroll",this.handleScroll)
     }
 });
 App.mount("#app")
