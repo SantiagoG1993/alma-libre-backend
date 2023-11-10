@@ -5,7 +5,8 @@ const App = createApp({
     data(){
         return{
             timeOut:null,
-            showRegisterForm:false
+            showRegisterForm:false,
+            showCart:false
 
         }
     },
@@ -63,6 +64,11 @@ const App = createApp({
                 item.classList.remove("sticky")
             }
         },
+        showCarrito(){
+            this.showCart = !this.showCart
+            const item = document.querySelector(".carrito_container")
+            item.classList.add("show--carrito")
+        }
     },
     mounted(){
         window.addEventListener("scroll",this.handleScroll)

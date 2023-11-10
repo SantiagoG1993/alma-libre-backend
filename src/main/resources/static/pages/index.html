@@ -32,7 +32,7 @@
                 <img id="logo" src="../assets/img/LOGOblanco.svg" alt="imagenLogo">
                 <div class="user_cart">  
                     <div class="icons"><i class="fa-solid fa-user" @click="showLogin"></i>
-                        <i class="fa-solid fa-cart-shopping"></i> </div>
+                        <i @click="showCarrito" class="fa-solid fa-cart-shopping"></i> </div>
                         <p id="bienvenido_p">Bienvenido/a Santiago</p>                         
                 </div>
             </div>
@@ -46,7 +46,7 @@
         </header>
         <main>
             <!-- Carrito modal -->
-            <div class="carrito_container">
+            <div  v-show="showCart == true" class="carrito_container">
                 <div class="carrito_container__producto">
                     <img class="carrito_container__img" src="../assets/img/body.jpg" alt="">
                     <input class="carrito_container__input" type="number" name="" id="">
@@ -190,6 +190,25 @@
                     <h3 id="precio">3100.00 ARS</h3>
                     <button id="agregar_carrito_btn">Agregar al carrito</button>
                 </div>              
+            </div>
+
+            <!-- Producto Destacado -->
+            <div class="destacado">
+                <h2 class="destacado__title">Producto destacado</h2>
+                <div class="destacado__producto">
+                    <img src="../assets/img/jarroT.jpg" alt="">
+                    <div class="destacado__producto___container">
+                        <div class="destacado__producto___info">
+                            <h3 class="destacado__titulo">Jarro termico</h3>
+                            <p class="destacado__descripcion">Jarro termico personalizado 500ml.</p>
+                            <p class="destacado__precio">$3200.00</p>
+                        </div>
+                        <div class="destacado__producto___botones">
+                                <button class="destacado__producto_btn btn_agregar ">Agregar al carrito <i class="fa-solid fa-cart-shopping"></i></button>
+                                <button class="destacado__producto_btn btn_info">Ver mas info <i class="fa-regular fa-circle-question"></i></button>
+                        </div>
+                    </div>   
+                </div>
             </div>
 
         </main>
