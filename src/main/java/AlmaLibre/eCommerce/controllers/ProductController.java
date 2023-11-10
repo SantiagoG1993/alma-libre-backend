@@ -1,6 +1,7 @@
 package AlmaLibre.eCommerce.controllers;
 
 import AlmaLibre.eCommerce.models.Product;
+import AlmaLibre.eCommerce.models.ProductType;
 import AlmaLibre.eCommerce.respositories.ProductRepository;
 import org.apache.tomcat.jni.Proc;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +36,8 @@ public class ProductController {
                                                 @RequestParam String img,
                                                 @RequestParam int price,
                                                 @RequestParam boolean isFeatured,
-                                                @RequestParam int stock){
+                                                @RequestParam int stock,
+                                                @RequestParam ProductType productType){
 
         if(name.isBlank()){
             return new ResponseEntity<>("Ingrese un nombre valido", HttpStatus.FORBIDDEN);
@@ -53,7 +55,7 @@ public class ProductController {
             return new ResponseEntity<>("Ingrese un stock valido", HttpStatus.FORBIDDEN);
         }
         else{
-            Product newProduct = new Product(name,price,img,description);
+            Product newProduct = new Product(name,price,img,description,productType);
             newProduct.setFeatured(isFeatured);
             newProduct.setStock(stock);
             productRepository.save(newProduct);

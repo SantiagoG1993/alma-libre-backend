@@ -10,21 +10,21 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name;
-    private String description;
+    private String description, name ,img;
     private double price;
     private int stock;
-    private String img;
     private boolean isFeatured = false;
+    private ProductType productType;
 
     public Product() {
     }
 
-    public Product(String name, double price, String img,String description) {
+    public Product(String name, double price, String img,String description,ProductType productType) {
         this.name = name;
         this.price = price;
         this.img = img;
         this.description = description;
+        this.productType = productType;
     }
 
     public Product(String name, String description, double price) {
@@ -87,5 +87,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 }

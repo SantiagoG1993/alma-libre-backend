@@ -52,7 +52,7 @@ animation-duration: 2s;
     display: flex!important;
     align-items: center!important;
     justify-content: center!important;
-    box-shadow: -1px 10px 12px 0px rgba(0,0,0,0.75);
+    box-shadow: -1px 10px 12px 0px rgba(92, 92, 92, 0.75);
 }
 .sticky{
     position: fixed!important;
@@ -138,7 +138,7 @@ text-decoration-thickness: 4px;
     pointer-events: none;
     position: absolute;
     z-index: 20;
-    background-color: rgba(255, 255, 255, 0.756);
+    background-color: rgba(255, 255, 255, 0.899);
     display: flex!important;
     align-items: center!important;
     justify-content: center!important;
@@ -170,6 +170,107 @@ text-decoration-thickness: 4px;
     pointer-events: unset;
     animation:fadeInLeft;
     animation-duration: .3s;
+}
+
+/* Carrito modal */
+.carrito_container{
+    position: absolute;
+    background-color: white;
+    width: 350px;
+    min-height: 200px;
+    border-radius:6px;
+    right: 13%;
+    top: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    box-shadow: 2px 2px 11px 0px rgba(140, 140, 140, 0.75);
+}
+.carrito_container__producto{
+    margin-top: 7px!important;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    padding: 5px!important;
+}
+.carrito_container__img{
+    height: 100%;
+    border-radius: 2px;
+}
+.carrito_container__input{
+    width: 60px;
+    height: 40px;
+    margin-left: 10px!important;
+}
+.nombre_precio_container{
+    width: 145px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 2px;
+/*     border: 1px solid green; */
+}
+.nombre_precio_container h3{
+    color: #8b8a8a;
+    font-size: 16px!important;
+}
+.fa-trash-can{
+    color: #505050;
+}
+.fa-trash-can:hover{
+    color: #aa0eb9;
+    cursor: pointer;
+}
+.carrito_container__hr{
+    width: 90%;
+    color: #937096;
+    margin-bottom: 10px!important;
+}
+.carrito_compra__cant_articulos, .carrito_compra__descuento, .carrito_compra_total{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 20px!important;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 3px;
+    color: grey;
+    font-size: 14px!important;
+}
+.carrito_container__hr2{
+    width: 90%;
+margin-top: 10px!important;
+}
+.carrito_compra_total{
+color: black;
+font-size: 24px!important;
+margin-top: 20px!important;
+}
+.carrito_compra__btn{
+    width: 90%;
+    height: 40px;
+    background-color: #3D273E;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    margin-bottom: 20px!important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px!important;
+}
+.carrito_compra__btn i{
+    font-size: 14px!important;
+    padding-left: 10px!important;
+}
+.carrito_compra__btn:hover{
+    background-color: #7D5C7F;
+    cursor: pointer;
 }
 
 
@@ -354,8 +455,11 @@ bottom: 0px;
 #user_input, #password, #email{
     width: 80%;
     height: 50px;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
+    padding-left: 25px !important;
     color: #a0a0a0;
+    font-size: 14px!important;
+    border: 1px solid rgb(198, 198, 198);
     cursor: pointer;
 }
 #user_input:focus, #password:focus{
@@ -484,6 +588,8 @@ animation-duration: .5s;
     gap: 20px;
 /*     border: 3px solid red; */
     background-color: rgb(238, 238, 238);
+    animation: fadeIn;
+    animation-duration: 1s;
 }
 .producto{
     display: flex;
