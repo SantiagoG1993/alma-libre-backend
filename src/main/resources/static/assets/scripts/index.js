@@ -68,7 +68,16 @@ const App = createApp({
             this.showCart = !this.showCart
             const item = document.querySelector(".carrito_container")
             item.classList.add("show--carrito")
-        }
+        },
+        showContacto(){
+             const item = document.querySelector(".contacto")
+             item.classList.add("show--contacto")
+             document.body.style.overflow = "hidden"
+        },
+        closeContacto(){
+            const item = document.querySelector(".contacto")
+            item.classList.remove("show--contacto")
+       }
     },
     mounted(){
         window.addEventListener("scroll",this.handleScroll)

@@ -177,7 +177,7 @@ text-decoration-thickness: 4px;
 /* Banner como comprar */
 .como-comprar{
     margin-bottom: 60px!important;
-    width: 1600px;
+    width: 1500px;
     height: 400px;
     background-color: #B79CB9;
     border-radius: 25px;
@@ -199,6 +199,7 @@ text-decoration-thickness: 4px;
 }
 .como-comprar__subtitle{
     color: rgb(236, 236, 236);
+    width: 90%;
 }
 /* Carrito modal */
 .carrito_container{
@@ -306,6 +307,84 @@ margin-top: 20px!important;
 .carrito_compra__btn:hover{
     background-color: #7D5C7F;
     cursor: pointer;
+}
+/* Contacto modal */
+.contacto{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #1b1b1bcd;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+}
+.show--contacto{
+opacity: 1;
+pointer-events: unset;
+animation: fadeIn;
+animation-duration: .5s;
+}
+.contacto__modal{
+    width: 650px;
+    height: 430px;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 4px;
+    user-select: none;
+}
+.contacto__modal form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 80%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}  
+.contacto__modal form input:focus{
+    outline: none;
+}
+.contacto__form__input, .contacto__form__text{
+    height: 50px;
+    letter-spacing: 3px;
+    margin-top: 20px!important;
+    width: 500px;
+    padding-left: 20px!important;
+    border: 1px solid rgb(192, 192, 192);
+    color: rgb(107, 107, 107);
+    cursor: pointer;
+}
+.contacto__form__text{
+    width: 550px;
+    cursor: pointer;
+    height: 130px;
+}
+.contacto__modal button{
+    width: 150px;
+    height: 40px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 6px;
+    border: none;
+    background-color: #3D273E;
+    color: white;
+    border-radius: 5px;
+    align-self: flex-end;
+    margin-right: 70px!important;
+    margin-top: 20px!important;
+}
+.contacto__modal button:hover{
+    background-color: #5f4261;
 }
 
 /* Producto destacado */

@@ -40,7 +40,7 @@
                 <ul>
                     <li>INICIO</li>
                     <li id="item" @mouseover="showProducts" @mouseleave="closeProducts">PRODUCTOS</li>
-                    <li>CONTACTO</li>
+                    <li @click="showContacto">CONTACTO</li>
                 </ul>
             </nav>
         </header>
@@ -72,6 +72,19 @@
                 </div>
                 <button class="carrito_compra__btn">Ir al carrito <i class="fa-solid fa-cart-shopping"></i></button>
 
+            </div>
+            <!-- Contacto modal -->
+            <div class="contacto">
+                <div class="contacto__modal">
+                    <i @click="closeContacto" class="fa-solid fa-xmark"></i>
+                    <h3>Contactanos</h3>
+                    <form action="">
+                        <input class="contacto__form__input" type="text" placeholder="Nombre">
+                        <input class="contacto__form__input" type="text" placeholder="E-mail">
+                        <input class="contacto__form__text" type="text" placeholder="Ingresa tu mensaje">
+                        <button>Enviar</button>
+                    </form>
+                </div>
             </div>
             <!-- Boton whatsapp -->
             <div @mouseover="showWappModal" @mouseleave="closeWappModal"   class="whatsapp">
@@ -117,7 +130,7 @@
                         <li>CHOPPS</li>
                         <li>MATELISTOS</li>
                         <li>SET DE JARDIN</li>
-                        <li id="como_comprar">COMO COMPRAR?</li>
+                        <a href="#comprar"><li id="como_comprar">COMO COMPRAR?</li></a>
                     </ul>
             </div>
             <!-- Carrusel -->
@@ -210,7 +223,8 @@
                     </div>   
                 </div>
             </div>
-            <div class="como-comprar">
+            <!-- Como comprar banner -->
+            <div id="comprar" class="como-comprar">
                 <h3 class="como-comprar__title">¿Como comprar?</h3>
                 <p class="como-comprar__subtitle">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Assumenda, quas hic dolore quibusdam inventore ad nihil, sit qui esse non in et suscipit accusantium ipsa perferendis quidem molestiae, laudantium ipsam?</p>
             
