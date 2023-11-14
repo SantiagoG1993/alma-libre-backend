@@ -12,7 +12,9 @@ const App = createApp({
     },
     created(){
 
-       
+
+
+
     },
     methods:{
         
@@ -32,6 +34,7 @@ const App = createApp({
             const item = document.querySelector(".user_modal")
             item.classList.add("show--login")
             document.body.style.overflow = "hidden";
+            document.documentElement.scrollTop = 0;
         },
         closeLogin(){
             const item = document.querySelector(".user_modal")
@@ -70,14 +73,35 @@ const App = createApp({
             item.classList.add("show--carrito")
         },
         showContacto(){
-             const item = document.querySelector(".contacto")
-             item.classList.add("show--contacto")
-             document.body.style.overflow = "hidden"
+            const item = document.querySelector(".contacto")
+            item.classList.add("show--contacto")
+            document.body.style.overflow = "hidden"
+             document.documentElement.scrollTop = 0; // Para navegadores estándar
+
         },
         closeContacto(){
             const item = document.querySelector(".contacto")
             item.classList.remove("show--contacto")
-       }
+            document.body.style.overflow = "";
+    },
+    subirAlInicio(){
+        document.documentElement.scrollTop = 0;
+    },
+    showProductInfo(){
+        const item = document.querySelector(".producto-modal")
+        item.classList.add("show--product--info")
+    },
+    clseProductInfo(){
+        const item = document.querySelector(".producto-modal")
+        item.classList.remove("show--product--info")
+    }
+
+
+
+
+
+
+
     },
     mounted(){
         window.addEventListener("scroll",this.handleScroll)

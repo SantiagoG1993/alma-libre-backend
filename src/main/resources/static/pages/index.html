@@ -31,14 +31,18 @@
                 </div>
                 <img id="logo" src="../assets/img/LOGOblanco.svg" alt="imagenLogo">
                 <div class="user_cart">  
-                    <div class="icons"><i class="fa-solid fa-user" @click="showLogin"></i>
-                        <i @click="showCarrito" class="fa-solid fa-cart-shopping"></i> </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-user" @click="showLogin"></i>
+                        <i @click="showCarrito" class="fa-solid fa-cart-shopping"></i> 
+                        <i class="fa-solid fa-magnifying-glass" id="lupa"></i>
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
                         <p id="bienvenido_p">Bienvenido/a Santiago</p>                         
                 </div>
             </div>
             <nav class="navbar">
                 <ul>
-                    <li>INICIO</li>
+                    <li @click="subirAlInicio">INICIO</li>
                     <li id="item" @mouseover="showProducts" @mouseleave="closeProducts">PRODUCTOS</li>
                     <li @click="showContacto">CONTACTO</li>
                 </ul>
@@ -204,7 +208,26 @@
                     <button id="agregar_carrito_btn">Agregar al carrito</button>
                 </div>              
             </div>
-
+            <!-- Info producto Modal -->
+            <div class="producto-modal">
+                <div class="producto-modal__container">
+                    <i @click="closeLogin" class="fa-solid fa-xmark"></i>
+                    <div class="producto-modal__container___img-adicionales">
+                        <img src="../assets/img/remera1.jpg" alt="">
+                        <img src="../assets/img/remera1.jpg" alt="">
+                        <img src="../assets/img/remera1.jpg" alt="">
+                        <img src="../assets/img/remera1.jpg" alt="">
+                    </div>
+                    <img src="../assets/img/jarroT.jpg" alt="jarro_termico" class="producto-modal__container___img" >
+                    <div class="producto-modal__container___info">
+                        <h3>Jarro termico</h3>
+                        <p  class="producto-modal__container___info____descripcion">Jarro termico personalizado 500ml.</p>
+                        <p class="producto-modal__container___info____precio">$3200.00</p>
+                        <input type="number">
+                        <button>Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
             <!-- Producto Destacado -->
             <div class="destacado">
                 <h2 class="destacado__title">Producto destacado</h2>

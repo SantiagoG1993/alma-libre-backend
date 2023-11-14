@@ -177,7 +177,7 @@ text-decoration-thickness: 4px;
 /* Banner como comprar */
 .como-comprar{
     margin-bottom: 60px!important;
-    width: 1500px;
+    width: 90%;
     height: 400px;
     background-color: #B79CB9;
     border-radius: 25px;
@@ -343,6 +343,9 @@ animation-duration: .5s;
     letter-spacing: 4px;
     user-select: none;
 }
+.contacto__modal h3{
+    color: #6d4f6f;
+}
 .contacto__modal form{
     display: flex;
     flex-direction: column;
@@ -494,11 +497,14 @@ animation-duration: 1s;
     gap: 20px;
     justify-content: center;
 }
-.fa-user, .fa-cart-shopping{
+.fa-bars, #lupa{
+    display: none!important;
+}
+.fa-user, .fa-cart-shopping, .fa-bars, #lupa{
 font-size: 30px;
     color: white;
 }
-.fa-user:hover, .fa-cart-shopping:hover{
+.fa-user:hover, .fa-cart-shopping, .fa-bars:hover, #lupa{
     animation:headShake;
     animation-duration: .6s;
     cursor: pointer;
@@ -510,6 +516,99 @@ font-size: 30px;
     user-select: none;
 
 }
+
+/* Producto info Modal */
+
+.producto-modal{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.623);
+    z-index: 2;
+    backdrop-filter: blur(2px);
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+}
+.show--product--info{
+    opacity: 1;
+    pointer-events: unset;
+}
+.producto-modal__container{
+    background-color: white;
+    position: fixed;
+    top: 40px;
+    width: 1200px;
+    height: 550px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+.producto-modal__container___img-adicionales{
+height: 90%;
+width: 120px;
+margin-left: 20px!important;
+margin-right: 30px!important;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+border-radius: 6px;
+gap: 30px;
+}
+.producto-modal__container___img-adicionales img{
+    width: 60%;
+}
+.producto-modal__container___img{
+    height: 60%;
+    border-radius: 6px;
+}
+.producto-modal__container___info{
+    width: 600px;
+    height: 300px;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 5px;
+    margin-left: 30px!important;
+    display: flex;
+    flex-direction: column;
+    gap: 10px!important;
+}
+.producto-modal__container___info input{
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+.producto-modal__container___info input:focus{
+    outline: none;
+}
+.producto-modal__container___info button{
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    background-color: black;
+    color: white;
+}
+.producto-modal__container___info button:hover{
+    background-color: #353535;
+    cursor: pointer;
+}
+.producto-modal__container___info h3{
+    font-size: 40px;
+}
+.producto-modal__container___info____descripcion{
+    font-size: 20px;
+    color: #505050;
+    letter-spacing: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.producto-modal__container___info____precio{
+    font-size: 40px;
+}
+
 
 /* Footer */
 footer{
@@ -859,7 +958,39 @@ animation-duration: .5s;
     width: 100%!important;
     height: 400px!important;
 }
-/* .carousel-item{
-   width: 100%!important;
-   object-fit: cover;
-} */
+@media (max-width:1080px){
+    .destacado__producto{
+        width: 90%;
+    }
+    .destacado__producto_btn{
+    width: 100%;
+    }
+    .como-comprar{
+        width: 95%;
+    } 
+}
+@media (max-width:990px){
+    .search_container{
+    display: none;
+}
+.fa-bars, #lupa{
+    display: unset!important;
+}
+.navbar{
+    display: none!important;
+}
+}
+@media(max-width:545px){
+    .producto{
+        width: 350px;
+        height: 400px;
+        border-radius: 5px;
+        border: 1px solid rgb(228, 227, 228);
+        background-color: white;
+        user-select: none;
+        cursor: pointer;
+    }
+    .producto img{
+        object-fit: cover;
+    }
+}
