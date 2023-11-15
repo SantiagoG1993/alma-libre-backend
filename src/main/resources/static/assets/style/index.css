@@ -536,6 +536,9 @@ font-size: 30px;
 .show--product--info{
     opacity: 1;
     pointer-events: unset;
+    animation: fadeIn;
+    animation-duration: .6s;
+
 }
 .producto-modal__container{
     background-color: white;
@@ -561,6 +564,10 @@ gap: 30px;
 }
 .producto-modal__container___img-adicionales img{
     width: 60%;
+}
+.producto-modal__container___img-adicionales img:hover{
+    border: 1px solid rgb(137, 137, 137);
+    cursor: pointer;
 }
 .producto-modal__container___img{
     height: 60%;
@@ -907,13 +914,40 @@ animation-duration: .5s;
     background-color: white;
     user-select: none;
     cursor: pointer;
+    position: relative;
 }
 .producto:hover{
     box-shadow: 3px 4px 18px 0px rgba(214, 214, 214, 0.75);
     transition: all .3s ease;
-    border: none;
-
+/*     border:4px solid purple; */
 }
+.i_container-fav, .i_container-eye{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: #653367;
+    width: 35px;
+    height: 35px;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
+}
+.show--fav-eye{
+    opacity: 1;
+    pointer-events: unset;
+}
+.i_container-eye{
+    top: 55px;
+}
+.i_container-fav:hover, .i_container-eye:hover{
+    background-color: #ad8aaf;   
+}
+
 .producto img{
     width: 90%;
     height: 190px;

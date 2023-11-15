@@ -91,9 +91,21 @@ const App = createApp({
         const item = document.querySelector(".producto-modal")
         item.classList.add("show--product--info")
     },
-    clseProductInfo(){
+    closeProductInfo(){
         const item = document.querySelector(".producto-modal")
         item.classList.remove("show--product--info")
+    },
+    showFavEye(){
+        const itemFav = document.querySelector(".i_container-fav")
+        const itemEye = document.querySelector(".i_container-eye")
+        itemFav.classList.add("show--fav-eye")
+        itemEye.classList.add("show--fav-eye")
+    },
+    closeFavEye(){
+        const itemFav = document.querySelector(".i_container-fav")
+        const itemEye = document.querySelector(".i_container-eye")
+        itemFav.classList.remove("show--fav-eye")
+        itemEye.classList.remove("show--fav-eye") 
     }
 
 

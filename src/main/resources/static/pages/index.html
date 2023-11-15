@@ -158,7 +158,13 @@
                 <li>Diseños digitales</li>
             </ul>
             <div class="productos_container">
-                <div class="producto">
+                <div class="producto" @mouseover="showFavEye" @mouseleave="closeFavEye">
+                    <div class="i_container-fav ">
+                        <i class="fa-regular fa-heart"></i>
+                    </div>
+                    <div class="i_container-eye">
+                        <i @click="showProductInfo" class="fa-regular fa-eye"></i>
+                    </div>
                     <img src="../assets/img/remera1.jpg" alt="remera1">
                     <h2 id="nombre_producto">Remera unisex talle 4 al 16</h2>
                     <h3 id="precio">4500.00 ARS</h3>
@@ -211,7 +217,7 @@
             <!-- Info producto Modal -->
             <div class="producto-modal">
                 <div class="producto-modal__container">
-                    <i @click="closeLogin" class="fa-solid fa-xmark"></i>
+                    <i @click="closeProductInfo" class="fa-solid fa-xmark"></i>
                     <div class="producto-modal__container___img-adicionales">
                         <img src="../assets/img/remera1.jpg" alt="">
                         <img src="../assets/img/remera1.jpg" alt="">
