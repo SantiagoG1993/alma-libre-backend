@@ -35,7 +35,7 @@
                         <i class="fa-solid fa-user" @click="showLogin"></i>
                         <i @click="showCarrito" class="fa-solid fa-cart-shopping"></i> 
                         <i class="fa-solid fa-magnifying-glass" id="lupa"></i>
-                        <i class="fa-solid fa-bars"></i>
+                        <i @click="showNavBarModal" class="fa-solid fa-bars"></i>
                     </div>
                         <p id="bienvenido_p">Bienvenido/a Santiago</p>                         
                 </div>
@@ -123,6 +123,19 @@
                     <input type="submit" value="ACEPTAR" id="btn_ingresar">
                     <hr class="linea">    
                 </div>
+            </div>
+            <!-- Navbar Lateral Modal -->
+            <div class="navbar-modal">
+                <ul class="navbar-modal__ul">
+                    <li>TAZAS</li>
+                        <li>REMERAS</li>
+                        <li>GORRAS</li>
+                        <li>BODYS</li>
+                        <li>CHOPPS</li>
+                        <li>MATELISTOS</li>
+                        <li>SET DE JARDIN</li>
+                        <a href="#comprar"><li id="como_comprar">COMO COMPRAR?</li></a>
+                </ul>
             </div>
             <!-- Menu productos hover -->
             <div class="menu_productos" @mouseover="showProducts" @mouseleave="closeProducts">

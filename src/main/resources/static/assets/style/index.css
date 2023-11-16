@@ -130,6 +130,49 @@ text-decoration: underline rgb(130, 109, 152);
 text-decoration-thickness: 4px;
 }
 
+/* Navbar modal lateral */
+
+.navbar-modal{
+    position: fixed;
+    top: 40px;
+    z-index: 2;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    border-radius: 0px 10px 10px 0px;
+    background-color: #8f5198;
+    color: white;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 5px;
+    font-size: 20px;
+    box-shadow: 9px -8px 6px -4px rgba(46, 46, 46, 0.75);
+    opacity: 0;
+    pointer-events: none;
+}
+.navbar-modal ul{
+list-style-type: none;
+display: flex; 
+flex-direction: column;
+justify-content: center;
+gap: 20px;
+padding-left: 20px!important;
+padding-top: 30px!important;
+}
+.navbar-modal ul li{
+    cursor: pointer;
+}
+.navbar-modal ul li a{
+    text-decoration: none!important;
+}
+.navbar-modal ul li:hover{
+    text-decoration: 4px underline white;
+}
+.show--navBarModal{
+    opacity: 1;
+    pointer-events: unset;
+    animation: fadeInLeft;
+    animation-duration: .3s;
+}
 /* Menu productos hover */
 
 .menu_productos{

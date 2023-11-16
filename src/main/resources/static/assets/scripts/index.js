@@ -106,6 +106,14 @@ const App = createApp({
         const itemEye = document.querySelector(".i_container-eye")
         itemFav.classList.remove("show--fav-eye")
         itemEye.classList.remove("show--fav-eye") 
+    },
+    showNavBarModal(){
+        const item = document.querySelector(".navbar-modal")
+        item.classList.add("show--navBarModal")
+    },
+    closeNavBarModal(){
+        const item = document.querySelector(".navbar-modal")
+        item.classList.remove("show--navBarModal")
     }
 
 
