@@ -19,7 +19,7 @@ public class ProductController {
     ProductRepository productRepository;
 
     @GetMapping("/products")
-    public List<Product> products(){
+    public List<Product> getProducts(){
         List<Product> allProducts = productRepository.findAll();
         return allProducts;
     }
@@ -62,4 +62,6 @@ public class ProductController {
             return new ResponseEntity<>("Producto creado Correctamente",HttpStatus.CREATED);
         }
     }
+
+
 }
