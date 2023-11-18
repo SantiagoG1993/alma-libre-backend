@@ -20,8 +20,10 @@ public class ECommerceApplication {
 	public CommandLineRunner initData(ClientRepository clientRepository, ProductRepository productRepository){
 		return (args)->{
 
-			Client client1 =new Client("Santiaog","Gamarra","3412475871");
+			Client client1 =new Client("Santiaog","Gamarra","3412475871","123","santi@gmail.com");
 			clientRepository.save(client1);
+			Client client2 =new Client("Georgina","Aguer","34135353554","123","geo@gmail.com");
+			clientRepository.save(client2);
 
 			Product product1=new Product("Remera Unisex","Talle del 4 a1 16",4500.0);
 			productRepository.save(product1);
