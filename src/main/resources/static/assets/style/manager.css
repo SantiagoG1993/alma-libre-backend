@@ -172,6 +172,12 @@ td{
     opacity: 0;
     pointer-events: none;
 }
+#close-x{
+    color: white!important;
+}
+#close-x:hover{
+    color: rgb(109, 81, 109) !important;
+}
 form{
     display: flex;
     flex-direction: column;
@@ -259,4 +265,17 @@ form button{
 }
 .mensajes-cont ul li{
     margin:25px!important;
+}
+
+@media (max-width:1000px){
+.menu{
+    display: none!important;
+}
+.products-table{
+    border: 1px solid red;
+    width: 100%;
+}
+.items_tabla{
+    display: none!important;
+}
 }

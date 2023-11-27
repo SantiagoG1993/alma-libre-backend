@@ -45,7 +45,7 @@
 
             <!-- Agregar producto Modal -->
             <div class="add-producto_modal">
-                <i @click="closeAddProduct" class="fa-solid fa-xmark"></i>
+                <i @click="closeAddProduct" id="close-x" class="fa-solid fa-xmark"></i>
                 <form action="">
                     <h2>Agregar producto</h2>
                     <input type="text" placeholder="Nombre" id="nombre">
@@ -68,9 +68,9 @@
                         <th>IMAGEN</th>
                         <th>NOMBRE</th>
                         <th>PRECIO</th>
-                        <th>DESCRIPCION</th>
+                        <th class="items_tabla">DESCRIPCION</th>
                         <th>STOCK</th>
-                        <th>DESTACADO</th>
+                        <th class="items_tabla">DESTACADO</th>
                         <th>COD.</th>
                     </tr>
                     <tr id="tr2">
@@ -78,9 +78,9 @@
                         <td><img src="../assets/img/remera1.jpg" alt="" id="img_table"></td>
                         <td>Remera unisex talle 4 al 16</td>
                         <td id="precio_stock_destacado">$3500.00</td>
-                        <td>Remera unisex talle 4 al 16</td>
+                        <td class="items_tabla">Remera unisex talle 4 al 16</td>
                         <td id="precio_stock_destacado">30 u</td>
-                        <td id="precio_stock_destacado">no</td>
+                        <td id="precio_stock_destacado" class="items_tabla">no</td>
                         <td>0001</td>
                     </tr>
             </table> 
