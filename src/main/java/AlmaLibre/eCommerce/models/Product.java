@@ -1,9 +1,8 @@
 package AlmaLibre.eCommerce.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -13,32 +12,54 @@ public class Product {
     private String description, name ,img;
     private double price;
     private int stock;
-    private boolean isFeatured = false;
+    private boolean featured;
     private ProductType productType;
+    private Boolean isDeleted = false;
+    private Boolean fav = false;
+    @ManyToOne
+    @JoinColumn(name = "order_id")
+    private BuyOrder order;
+
 
     public Product() {
     }
 
-    public Product(String name, double price, String img,String description,ProductType productType) {
+    public Product(String name,double price,String description,ProductType productType,String img) {
         this.name = name;
         this.price = price;
-        this.img = img;
         this.description = description;
         this.productType = productType;
+        this.img = img;
+    }
+@JsonIgnore
+    public BuyOrder getOrder() {
+        return order;
     }
 
-    public Product(String name, String description, double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
+    public void setOrder(BuyOrder order) {
+        this.order = order;
     }
 
-    public boolean isFeatured() {
-        return isFeatured;
+    public Boolean getDeleted() {
+        return isDeleted;
     }
+
+    public void setDeleted(Boolean deleted) {
+        isDeleted = deleted;
+    }
+
+
 
     public void setFeatured(boolean featured) {
-        isFeatured = featured;
+        this.featured = featured;
+    }
+
+    public Boolean getFav() {
+        return fav;
+    }
+
+    public void setFav(Boolean fav) {
+        this.fav = fav;
     }
 
     public String getImg() {
@@ -71,6 +92,10 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public boolean isFeatured() {
+        return featured;
     }
 
     public int getStock() {

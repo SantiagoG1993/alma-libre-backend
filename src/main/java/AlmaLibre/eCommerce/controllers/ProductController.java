@@ -1,16 +1,15 @@
 package AlmaLibre.eCommerce.controllers;
-
+import AlmaLibre.eCommerce.dtos.ProductDTO;
 import AlmaLibre.eCommerce.models.Product;
-import AlmaLibre.eCommerce.models.ProductType;
 import AlmaLibre.eCommerce.respositories.ProductRepository;
-import org.apache.tomcat.jni.Proc;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
+import java.util.Optional;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -30,38 +29,72 @@ public class ProductController {
         return product;
     }
 
-    @PostMapping("/products")
-    public ResponseEntity<Object> createProduct(@RequestParam String name,
-                                                @RequestParam String description,
-                                                @RequestParam String img,
-                                                @RequestParam int price,
-                                                @RequestParam boolean isFeatured,
-                                                @RequestParam int stock,
-                                                @RequestParam ProductType productType){
 
-        if(name.isBlank()){
+    @PostMapping("/products")
+    public ResponseEntity<Object> createProduct(@RequestBody ProductDTO productDTO){
+
+        if(productDTO.getName().isBlank()){
             return new ResponseEntity<>("Ingrese un nombre valido", HttpStatus.FORBIDDEN);
         }
-        if(description.isBlank()){
+        if(productDTO.getDescription().isBlank()){
             return new ResponseEntity<>("Ingrese una descripcion valida", HttpStatus.FORBIDDEN);
         }
-        if(img.isBlank()){
-            return new ResponseEntity<>("Ingrese una url valida", HttpStatus.FORBIDDEN);
-        }
-        if(price<= 0){
+        if(productDTO.getPrice()<= 0){
             return new ResponseEntity<>("Ingrese un precio valido", HttpStatus.FORBIDDEN);
         }
-        if(stock <= 0){
+        if(productDTO.getStock() <= 0){
             return new ResponseEntity<>("Ingrese un stock valido", HttpStatus.FORBIDDEN);
         }
         else{
-            Product newProduct = new Product(name,price,img,description,productType);
-            newProduct.setFeatured(isFeatured);
-            newProduct.setStock(stock);
+            Product newProduct = new Product(productDTO.getName(),productDTO.getPrice(),productDTO.getDescription(),productDTO.getProductType(),productDTO.getImg());
+            if(productDTO.isFeatured() == true){
+                List<Product> allProducts = productRepository.findAll();
+                for(Product product : allProducts){
+                    product.setFeatured(false);
+                    productRepository.save(product);
+                }
+            }
+            newProduct.setFeatured(productDTO.isFeatured());
+            newProduct.setStock(productDTO.getStock());
             productRepository.save(newProduct);
-            return new ResponseEntity<>("Producto creado Correctamente",HttpStatus.CREATED);
+            return new ResponseEntity<>("Producto creado Correct+amente",HttpStatus.CREATED);
         }
     }
-
-
+    @GetMapping("/featured")
+    public ResponseEntity<Object> getFeaturedProduct(){
+        Optional<Product> featuredProduct = productRepository.findAll()
+                .stream()
+                .filter(product -> product.isFeatured()==true)
+                .findFirst();
+        if(featuredProduct.isPresent()){
+            return new ResponseEntity<>(featuredProduct.get(),HttpStatus.OK);
+        }else {
+            return new ResponseEntity<>("No featured product found", HttpStatus.NOT_FOUND);
+        }
+    }
+    @PostMapping("/products/delete")
+    public ResponseEntity<Object> deleteProduct(@RequestParam Long id){
+        Product product = productRepository.findById(id).orElse(null);
+        if(product != null){
+            product.setDeleted(true);
+            productRepository.save(product);
+            return new ResponseEntity<>("Producto eliminado correctamente",HttpStatus.OK);
+        }else{
+            return new ResponseEntity<>("Error al eliminar el producto",HttpStatus.FORBIDDEN);
+        }
+    }
+    @PostMapping("/products/fav")
+    public ResponseEntity<Object> setFav(@RequestParam Long id){
+        Product product = productRepository.findById(id).orElse(null);
+        product.setFav(true);
+        productRepository.save(product);
+        return new ResponseEntity<>("Agreagado a Favoritos ", HttpStatus.OK);
+    }
+    @PostMapping("/products/fav/delete")
+    public ResponseEntity<Object> unsetFav(@RequestParam Long id){
+        Product product = productRepository.findById(id).orElse(null);
+        product.setFav(false);
+        productRepository.save(product);
+        return new ResponseEntity<>("Quitado de Favoritos ", HttpStatus.OK);
+}
 }

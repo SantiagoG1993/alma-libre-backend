@@ -39,6 +39,14 @@ closeAddProduct(){
     const item = document.querySelector(".add-producto_modal")
     item.classList.remove("show--products--modal")
 },
+showMenu(){
+const item = document.querySelector(".menu")
+item.classList.add("show--manager--menu")
+},
+closeMenu(){
+    const item = document.querySelector(".menu")
+    item.classList.remove("show--manager--menu")
+    }
 
 
     }
