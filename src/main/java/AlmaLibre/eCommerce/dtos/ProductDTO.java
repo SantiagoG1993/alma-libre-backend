@@ -5,6 +5,7 @@ import AlmaLibre.eCommerce.models.ProductType;
 import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDTO {
+    private Long id;
     private String description, name,img;
     private double price;
     private int stock;
@@ -21,6 +22,7 @@ public class ProductDTO {
         stock = product.getStock();
         featured = product.isFeatured();
         productType = product.getProductType();
+        id = product.getId();
     }
 
     public Boolean getFav() {
@@ -85,5 +87,9 @@ public class ProductDTO {
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+    public Long getId() {
+        return id;
     }
 }

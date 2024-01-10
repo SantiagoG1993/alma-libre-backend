@@ -97,4 +97,30 @@ public class ProductController {
         productRepository.save(product);
         return new ResponseEntity<>("Quitado de Favoritos ", HttpStatus.OK);
 }
+@PatchMapping("/products/edit")
+    public ResponseEntity<Object> editProduct(@RequestParam Long id,
+                                              @RequestBody ProductDTO productDTO){
+        Product product = productRepository.findById(id).orElse(null);
+        if(productDTO.getProductType() != null){
+            product.setProductType(productDTO.getProductType());
+        }
+        if(productDTO.getImg()!=null){
+            product.setImg(productDTO.getImg());
+        }
+        if(productDTO.getName()!=null){
+            product.setName(productDTO.getName());
+        }
+        if(productDTO.getDescription() !=null){
+            product.setDescription(productDTO.getDescription());
+        }
+        if(productDTO.getStock()>0){
+            product.setStock(productDTO.getStock());
+        }
+        if(productDTO.getPrice()>0){
+            product.setPrice(productDTO.getPrice());
+        }
+
+        productRepository.save(product);
+        return new ResponseEntity<>("Producto modificado correctamente",HttpStatus.OK);
+}
 }
