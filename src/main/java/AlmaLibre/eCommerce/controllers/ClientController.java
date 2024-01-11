@@ -5,10 +5,10 @@ import AlmaLibre.eCommerce.respositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class ClientController {
@@ -25,6 +25,19 @@ public class ClientController {
     public Client getClient(@PathVariable Long id){
         return clientRepository.findById(id).orElse(null);
     }
+    @GetMapping("/clients/current")
+    public ResponseEntity<Object> getAuthClient(Authentication authentication) {
+        if (authentication == null) {
+            System.out.println("auth es null!!");
+        } else {
+            System.out.println(authentication.getName());
+            Client client = clientRepository.findByEmail(authentication.getName());
+            return new ResponseEntity<>(client,HttpStatus.OK);
+        }
+        // Si authentication es null, puedes decidir qué devolver en este caso
+        return null;
+    }
+
     @PostMapping("/clients")
     public ResponseEntity<Object> registerClient(@RequestParam String firstName,
                                                  @RequestParam String lastName,

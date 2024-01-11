@@ -83,21 +83,7 @@ public class ProductController {
             return new ResponseEntity<>("Error al eliminar el producto",HttpStatus.FORBIDDEN);
         }
     }
-    @PostMapping("/products/fav")
-    public ResponseEntity<Object> setFav(@RequestParam Long id){
-        Product product = productRepository.findById(id).orElse(null);
-        product.setFav(true);
-        productRepository.save(product);
-        return new ResponseEntity<>("Agreagado a Favoritos ", HttpStatus.OK);
-    }
-    @PostMapping("/products/fav/delete")
-    public ResponseEntity<Object> unsetFav(@RequestParam Long id){
-        Product product = productRepository.findById(id).orElse(null);
-        product.setFav(false);
-        productRepository.save(product);
-        return new ResponseEntity<>("Quitado de Favoritos ", HttpStatus.OK);
-}
-@PatchMapping("/products/edit")
+    @PatchMapping("/products/edit")
     public ResponseEntity<Object> editProduct(@RequestParam Long id,
                                               @RequestBody ProductDTO productDTO){
         Product product = productRepository.findById(id).orElse(null);
@@ -122,5 +108,22 @@ public class ProductController {
 
         productRepository.save(product);
         return new ResponseEntity<>("Producto modificado correctamente",HttpStatus.OK);
+    }
+
+    //FAVORITOS
+    @PostMapping("/products/fav")
+    public ResponseEntity<Object> setFav(@RequestParam Long id){
+        Product product = productRepository.findById(id).orElse(null);
+        product.setFav(true);
+        productRepository.save(product);
+        return new ResponseEntity<>("Agreagado a Favoritos ", HttpStatus.OK);
+    }
+    @PostMapping("/products/fav/delete")
+    public ResponseEntity<Object> unsetFav(@RequestParam Long id){
+        Product product = productRepository.findById(id).orElse(null);
+        product.setFav(false);
+        productRepository.save(product);
+        return new ResponseEntity<>("Quitado de Favoritos ", HttpStatus.OK);
 }
+
 }

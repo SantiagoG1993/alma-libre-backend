@@ -11,6 +11,7 @@ public class Client {
     private Long id;
     private String firstName, lastName,phone;
     private String password, email;
+    private boolean isAdmin;
 
     public Client() {
     }
@@ -69,5 +70,13 @@ public class Client {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

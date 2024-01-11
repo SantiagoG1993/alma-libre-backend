@@ -2,10 +2,12 @@ package AlmaLibre.eCommerce;
 
 import AlmaLibre.eCommerce.models.*;
 import AlmaLibre.eCommerce.respositories.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -16,6 +18,8 @@ public class ECommerceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ECommerceApplication.class, args);
 	}
+	@Autowired
+	PasswordEncoder passwordEncoder;
 
 	@Bean
 	public CommandLineRunner initData(ClientRepository clientRepository,
@@ -27,9 +31,14 @@ public class ECommerceApplication {
 	){
 		return (args)->{
 
-			Client client1 =new Client("Santiaog","Gamarra","3412475871","123","santi@gmail.com");
+
+
+			Client client1 =new Client("Manuel","Gamarra","3412475871", passwordEncoder.encode("admin"), "almalibre@gmail.com");
+			client1.setAdmin(true);
 			clientRepository.save(client1);
-			Client client2 =new Client("Georgina","Aguer","34135353554","123","geo@gmail.com");
+
+			Client client2 =new Client("Georgina","Aguer","34135353554",passwordEncoder.encode("123"),"geo@gmail.com");
+			client2.setAdmin(false);
 			clientRepository.save(client2);
 
 			Product product1=new Product("Remera unisex",4500.0,"jasdjajdssadasd",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/48XpWD0/remera.jpg");
