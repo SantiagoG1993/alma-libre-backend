@@ -1,21 +1,20 @@
 package AlmaLibre.eCommerce.controllers;
-
 import AlmaLibre.eCommerce.models.Client;
 import AlmaLibre.eCommerce.respositories.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
-@CrossOrigin("*")
+
 @RestController
 @RequestMapping("/api")
 public class ClientController {
 
     @Autowired
     ClientRepository clientRepository;
-
 
     @GetMapping("/clients")
     public List<Client> getClients(){
@@ -25,8 +24,11 @@ public class ClientController {
     public Client getClient(@PathVariable Long id){
         return clientRepository.findById(id).orElse(null);
     }
-    @GetMapping("/clients/current")
-    public ResponseEntity<Object> getAuthClient(Authentication authentication) {
+
+    @GetMapping("/current")
+    public ResponseEntity<Object> getAuthClient() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(authentication);
         if (authentication == null) {
             System.out.println("auth es null!!");
         } else {
@@ -35,7 +37,7 @@ public class ClientController {
             return new ResponseEntity<>(client,HttpStatus.OK);
         }
         // Si authentication es null, puedes decidir qué devolver en este caso
-        return null;
+        return new ResponseEntity<>("La respuesta es null",HttpStatus.FORBIDDEN);
     }
 
     @PostMapping("/clients")

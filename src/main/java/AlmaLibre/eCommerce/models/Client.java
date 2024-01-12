@@ -79,4 +79,12 @@ public class Client {
     public void setAdmin(boolean admin) {
         isAdmin = admin;
     }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                ", email='" + email + '\'' +
+                ", isAdmin=" + isAdmin +
+                '}';
+    }
 }

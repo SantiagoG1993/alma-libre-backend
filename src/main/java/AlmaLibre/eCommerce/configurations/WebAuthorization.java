@@ -5,14 +5,14 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.WebAttributes;
 import org.springframework.security.web.authentication.logout.HttpStatusReturningLogoutSuccessHandler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.security.Security;
+
 
 @EnableWebSecurity
 @Configuration
@@ -20,17 +20,19 @@ public class WebAuthorization  {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
+        http.cors().and().authorizeRequests()
+                .antMatchers(HttpMethod.POST).permitAll()
                 .antMatchers(HttpMethod.GET).permitAll()
                 .antMatchers("http://localhost:8081/manager").hasAuthority("ADMIN")
-                .antMatchers(HttpMethod.POST,"http://localhost:8080/api/login","http://localhost:8080/api/logout").permitAll()
                 .antMatchers("http://localhost:8081").hasAuthority("USER");
         http.formLogin()
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .loginPage("/api/login");
-        http.logout().logoutUrl("/api/logout");
-        http.csrf().disable();
+        http.logout().logoutUrl("/api/logout").and()
+                .sessionManagement()
+                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and()
+        .csrf().disable();
 
         http.exceptionHandling().authenticationEntryPoint((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));
 
@@ -40,7 +42,6 @@ public class WebAuthorization  {
 
         http.logout().logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler());
         return http.cors(Customizer.withDefaults()).build();
-
     }
 
 
@@ -55,4 +56,5 @@ public class WebAuthorization  {
         }
 
     }
+
 }

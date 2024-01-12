@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDateTime;
 import java.util.*;
 
-@CrossOrigin("*")
 @RestController
 @RequestMapping("/api")
 public class BuyOrderController {
