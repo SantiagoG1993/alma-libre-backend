@@ -42,7 +42,6 @@ public class WebAuthentication  extends GlobalAuthenticationConfigurerAdapter {
                             AuthorityUtils.createAuthorityList("USER"));
                     System.out.println("Este es el cliente auth como user " + user.toString());
                     return user;
-
                 }
 
             }

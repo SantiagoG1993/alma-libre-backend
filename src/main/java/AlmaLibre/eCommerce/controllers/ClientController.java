@@ -26,8 +26,7 @@ public class ClientController {
     }
 
     @GetMapping("/current")
-    public ResponseEntity<Object> getAuthClient() {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    public ResponseEntity<Object> getAuthClient(Authentication authentication) {
         System.out.println(authentication);
         if (authentication == null) {
             System.out.println("auth es null!!");

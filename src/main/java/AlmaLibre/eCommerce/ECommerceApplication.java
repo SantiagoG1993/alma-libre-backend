@@ -41,15 +41,56 @@ public class ECommerceApplication {
 			client2.setAdmin(false);
 			clientRepository.save(client2);
 
-			Product product1=new Product("Remera unisex",4500.0,"jasdjajdssadasd",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/48XpWD0/remera.jpg");
+			Product product1=new Product("Remera unisex",8500.0,"jasdjajdssadasd",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/TTTQX1r/remera-removebg-preview.png");
+			product1.setCategory("Remeras");
 			productRepository.save(product1);
 
-			Product product2=new Product("Kit de Mate",3800.0,"Mate+Azucarera+Yerbera",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/7bCSVt1/kitmate.jpg");
+			Product product2=new Product("Kit de Mate",7800.0,"Mate+Azucarera+Yerbera",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/mcFYtgn/kitmate-removebg-preview.png");
+			product2.setCategory("Kit de mate");
+			product2.getOtherImages().add("https://i.ibb.co/cYrDN8M/taza4.webp");
 			product2.setFeatured(true);
 			productRepository.save(product2);
-			Product product3=new Product("Jarro Termico",5200.0,"500 ml dise;o personalizado",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/1G0JZFL/jarrotermico.jpg");
-
+			Product product3=new Product("Jarro Termico",5200.0,"500 ml dise;o personalizado",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/0hS0kSc/jarrotermico-removebg-preview.png");
+			product3.setCategory("Tazas");
+			product3.getOtherImages().add("https://i.ibb.co/bQ54w47/taza1.jpg");
+			product3.getOtherImages().add("https://i.ibb.co/cQchqmz/taaza2.jpg");
+			product3.getOtherImages().add("https://i.ibb.co/8PrQpkC/taza3.jpg");
+			product3.getOtherImages().add("https://i.ibb.co/cYrDN8M/taza4.webp");
 			productRepository.save(product3);
+			Product product4 = new Product("Body personalizado",12000.0,"Body con dise;o personalizado",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/FYjs4cx/body-removebg-preview.png");
+			product4.setCategory("Bodys");
+			productRepository.save(product4);
+			Product product5 = new Product("Taza personalizada",5000.0,"Dise;o personalizado para negocios",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/b3BTJj7/tazas2-removebg-preview.png");
+			product5.setCategory("Tazas");
+			productRepository.save(product5);
+			Product product6 = new Product("Tarjetas de comunion",2000.0,"Tarjetas de comunion personalizadas",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/1qWwSLN/comunion-removebg-preview.png");
+			product6.setCategory("Tarjetas");
+			productRepository.save(product6);
+			Product product7 = new Product("Set Jardin personalizado",8000.0,"Set de jardin personalizado",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/8gZHLqR/set-Jardin.jpg");
+			product7.setCategory("Set de jardin");
+			productRepository.save(product7);
+			Product product8 = new Product("Llaveros Spiderman",3000.0,"LLaveros dise;o personalizado",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/t4q5L40/llaveros-sin-fondo.png");
+			product8.setCategory("Llaveros");
+			productRepository.save(product8);
+			Product product9 = new Product("Cantimplora con caja",1000.0,"Caja y cantimplora ambos dise;os personalizados",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/qd0yZcs/Cantimplora-removebg-preview.png");
+			product9.setCategory("Cantimploras");
+			productRepository.save(product9);
+			Product product10= new Product("Chopps personalizados",12000.0,"Chopps 750ml",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/xs16zNb/Chopps-removebg-preview.png");
+			product10.setCategory("Chopps");
+			productRepository.save(product10);
+			Product product11 = new Product("Set de jardin Barbie",8000.0,"Tupper y botella con dise;o de barbie",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/VYbYKDG/barby-removebg-preview.png");
+					product11.setCategory("Set de jardin");
+					productRepository.save(product11);
+			Product product12 = new Product("Box dia de la madre",10000.0,"Taza + Chocolate + 4 fotos polaroid",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/51ycQZs/dia-de-la-amdre.png");
+			product12.setCategory("Dia de la madre");
+			productRepository.save(product12);
+			Product product13 = new Product("Mochila",1500.0,"Mochila para jardin 20x30",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/gTKQyQW/mochila-removebg-preview.png");
+			product13.setCategory("Mochilas");
+			productRepository.save(product13);
+			Product product14 = new Product("Taza y cantimplora Merlina",5000.0,"asdasdasdasdasdasd",ProductType.CUSTOM_PRODUCT,"https://i.ibb.co/LrFxhsK/Whats-App-Image-2024-01-24-at-22-28-03-f43a5670-removebg-preview.png");
+			product14.setCategory("Tazas");
+			productRepository.save(product14);
+
 			// ORDENES DE COMPRA DE PRUEBA
 			Product prod1 = productRepository.findById(1L).orElse(null);
 			BuyOrder order1 = new BuyOrder(LocalDateTime.now(),22232);

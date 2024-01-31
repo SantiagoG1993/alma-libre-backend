@@ -3,6 +3,8 @@ package AlmaLibre.eCommerce.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -10,13 +12,17 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String description, name ,img;
+    private String description, name ,imgPrincipal,category;
     private double price;
     private int stock;
     private boolean featured;
     private ProductType productType;
     private Boolean isDeleted = false;
     private Boolean fav = false;
+    @ElementCollection
+    @CollectionTable(name = "product_images", joinColumns = @JoinColumn(name = "product_id"))
+    @Column(name = "image")
+    private List<String> otherImages = new ArrayList<>();
     @ManyToOne
     @JoinColumn(name = "order_id")
     private BuyOrder order;
@@ -25,12 +31,12 @@ public class Product {
     public Product() {
     }
 
-    public Product(String name,double price,String description,ProductType productType,String img) {
+    public Product(String name,double price,String description,ProductType productType,String imgPrincipal) {
         this.name = name;
         this.price = price;
         this.description = description;
         this.productType = productType;
-        this.img = img;
+        this.imgPrincipal = imgPrincipal;
     }
 @JsonIgnore
     public BuyOrder getOrder() {
@@ -63,12 +69,12 @@ public class Product {
         this.fav = fav;
     }
 
-    public String getImg() {
-        return img;
+    public String getImgPrincipal() {
+        return imgPrincipal;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setImgPrincipal(String imgPrincipal) {
+        this.imgPrincipal = imgPrincipal;
     }
 
     public Long getId() {
@@ -123,6 +129,14 @@ public class Product {
         this.productType = productType;
     }
 
+    public List<String> getOtherImages() {
+        return otherImages;
+    }
+
+    public void setOtherImages(List<String> otherImages) {
+        this.otherImages = otherImages;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -141,5 +155,13 @@ public class Product {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

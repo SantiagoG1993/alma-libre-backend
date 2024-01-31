@@ -8,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
-
 @RestController
 @RequestMapping("/api")
 public class ProductController {
@@ -46,6 +45,7 @@ public class ProductController {
         }
         else{
             Product newProduct = new Product(productDTO.getName(),productDTO.getPrice(),productDTO.getDescription(),productDTO.getProductType(),productDTO.getImg());
+            newProduct.setCategory(productDTO.getCategory());
             if(productDTO.isFeatured() == true){
                 List<Product> allProducts = productRepository.findAll();
                 for(Product product : allProducts){
@@ -90,7 +90,11 @@ public class ProductController {
             product.setProductType(productDTO.getProductType());
         }
         if(productDTO.getImg()!=null){
-            product.setImg(productDTO.getImg());
+            if(product.getImgPrincipal() == null){
+                product.setImgPrincipal(productDTO.getImg());
+            }else{
+                product.getOtherImages().add(productDTO.getImg());
+            }
         }
         if(productDTO.getName()!=null){
             product.setName(productDTO.getName());

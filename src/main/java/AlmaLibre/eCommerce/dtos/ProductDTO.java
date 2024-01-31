@@ -6,7 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class ProductDTO {
     private Long id;
-    private String description, name,img;
+    private String description, name,img,category;
     private double price;
     private int stock;
     private boolean featured;
@@ -27,6 +27,14 @@ public class ProductDTO {
 
     public Boolean getFav() {
         return fav;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public void setFav(Boolean fav) {
