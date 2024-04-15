@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for ecommerce-alma-libre1-lively-pond-6453 on 2024-04-15T18:03:14-03:00
+# fly.toml app configuration file generated for ecommerce-alma-libre on 2024-04-15T20:29:00-03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'ecommerce-alma-libre1-lively-pond-6453'
+app = 'ecommerce-alma-libre'
 primary_region = 'eze'
 
 [build]
