@@ -21,17 +21,15 @@ public class WebAuthorization  {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.cors().and().authorizeRequests()
-                .antMatchers(HttpMethod.POST).permitAll()
-                .antMatchers(HttpMethod.GET).permitAll()
-                .antMatchers("http://localhost:8081/manager").hasAuthority("ADMIN")
-                .antMatchers("http://localhost:8081").hasAuthority("USER");
+                .antMatchers(HttpMethod.POST,"/api/login","/api/logout").permitAll()
+                .antMatchers("/manager").hasAuthority("ADMIN")
+                .antMatchers("/").hasAuthority("USER");
         http.formLogin()
                 .usernameParameter("email")
                 .passwordParameter("password")
                 .loginPage("/api/login");
-        http.logout().logoutUrl("/api/logout").and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.ALWAYS).and()
+        http.logout().logoutUrl("/api/logout").
+                permitAll().deleteCookies("JSESSIONID").and()
         .csrf().disable();
 
         http.exceptionHandling().authenticationEntryPoint((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));

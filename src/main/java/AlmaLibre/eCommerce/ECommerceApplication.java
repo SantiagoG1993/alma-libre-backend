@@ -1,5 +1,4 @@
 package AlmaLibre.eCommerce;
-
 import AlmaLibre.eCommerce.models.*;
 import AlmaLibre.eCommerce.respositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @SpringBootApplication

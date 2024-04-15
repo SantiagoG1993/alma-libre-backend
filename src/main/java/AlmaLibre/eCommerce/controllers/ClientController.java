@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
@@ -25,7 +24,7 @@ public class ClientController {
         return clientRepository.findById(id).orElse(null);
     }
 
-    @GetMapping("/current")
+    @GetMapping("/client/auth")
     public ResponseEntity<Object> getAuthClient(Authentication authentication) {
         System.out.println(authentication);
         if (authentication == null) {
@@ -35,7 +34,6 @@ public class ClientController {
             Client client = clientRepository.findByEmail(authentication.getName());
             return new ResponseEntity<>(client,HttpStatus.OK);
         }
-        // Si authentication es null, puedes decidir qué devolver en este caso
         return new ResponseEntity<>("La respuesta es null",HttpStatus.FORBIDDEN);
     }
 

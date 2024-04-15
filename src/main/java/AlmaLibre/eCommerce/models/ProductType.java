@@ -4,3 +4,4 @@ public enum ProductType {
     CUSTOM_PRODUCT,
     DIGITAL_DESIGN
 }
+

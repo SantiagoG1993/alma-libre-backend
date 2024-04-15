@@ -28,19 +28,17 @@ public class WebAuthentication  extends GlobalAuthenticationConfigurerAdapter {
         auth.userDetailsService(inputName-> {
 
             Client client = clientRepository.findByEmail(inputName);
-            System.out.println("Este es el cliente que se envia en el login desde el front " + client);
 
             if (client != null) {
                 if(client.isAdmin()== true){
                      User user = new User(client.getEmail(), client.getPassword(),
                             AuthorityUtils.createAuthorityList("ADMIN"));
-                    System.out.println("Este es el cliente auth como admin " + user.toString());
+
                      return user;
                 }else{
                     User user = new User(client.getEmail(), client.getPassword(),
 
                             AuthorityUtils.createAuthorityList("USER"));
-                    System.out.println("Este es el cliente auth como user " + user.toString());
                     return user;
                 }
 
