@@ -22,8 +22,7 @@ public class WebAuthorization  {
 
         http.cors().and().authorizeRequests()
                 .antMatchers(HttpMethod.POST,"/api/login","/api/logout").permitAll()
-                .antMatchers("/manager").hasAuthority("ADMIN")
-                .antMatchers("/").hasAuthority("USER");
+                .antMatchers("/manager").hasAuthority("ADMIN");
         http.formLogin()
                 .usernameParameter("email")
                 .passwordParameter("password")

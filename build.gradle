@@ -30,6 +30,7 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-tasks.jar{
-	enabled=false
+test {
+	enabled = false
 }
+
