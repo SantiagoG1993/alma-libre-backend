@@ -3,9 +3,9 @@ FROM gradle:7.3.0-jdk11-alpine
 COPY . .
 
 
-RUN gradle clean package build
+RUN gradle  build
 
 
 EXPOSE 8080
 
-CMD ["java", "-jar","/build/libs/eCommerce-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar","/build/libs/eCommerce-0.0.1-SNAPSHOT.jar"]
