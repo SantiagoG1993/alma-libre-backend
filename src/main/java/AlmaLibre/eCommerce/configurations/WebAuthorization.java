@@ -30,6 +30,7 @@ public class WebAuthorization  {
         http.logout().logoutUrl("/api/logout").
                 permitAll().deleteCookies("JSESSIONID").and()
         .csrf().disable();
+        http.headers().frameOptions().disable();
 
         http.exceptionHandling().authenticationEntryPoint((req, res, exc) -> res.sendError(HttpServletResponse.SC_UNAUTHORIZED));
 
