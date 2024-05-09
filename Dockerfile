@@ -8,4 +8,4 @@ RUN gradle clean package build
 
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-jar","/build/libs/eCommerce-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar","/build/libs/eCommerce-0.0.1-SNAPSHOT.jar"]
